@@ -1,48 +1,29 @@
 #include <iostream>
 using namespace std;
-
-// A program to find the smallest and largest element of an array using recursive method
-int findMax(int arr[], int index, int n)
+// Return the min and max elements of an array using recursive method
+int findMax(int* array, int n)
 {
-    int max;
-    if (index >= n - 2)
-        return (arr[index] > arr[index + 1]) ? arr[index] : arr[index + 1];
-    max = findMax(arr, index + 1, n);
-
-    return (arr[index] > max) ? arr[index] : max;
+    return (n == 1) ?  array[0] : max(array[n - 1], findMax(array, n - 1));   
 }
-
-
-int findMin(int arr[], int index, int n)
+int findMin(int* array, int n)
 {
-    int min;
-
-    if (index >= n - 2)
-        return (arr[index] < arr[index + 1]) ? arr[index] : arr[index + 1];
-    min = findMin(arr, index + 1, n);
-
-    return (arr[index] < min) ? arr[index] : min;
+    return (n == 1) ? array[0] : min(array[n - 1], findMin(array, n - 1));
 }
 
 int main()
 {
-    int n;
     cout << "Enter the size of the array : ";
-    cin >> n; // Unesi broj elemenata niza
-    int* arr = new int[n](); //dinamicka alokacija niza
-    int min = arr[0];
-    int max = arr[0];
-    cout << "Enter the elements : ";
+    int n;  cin >> n;
+    cout << "Enter " << n << " elements into the array : ";
+    int* arr = new int[n];
     for (int i = 0; i < n; i++)
-    {
         cin >> arr[i];
-    }
 
-    max = findMax(arr, 0, n);
-    min = findMin(arr, 0, n);
+    int min = arr[0];   min = findMin(arr, n);
+    int max = arr[0];   max = findMax(arr, n);
 
     cout << "Smallest element in the array =  " << min << endl;
     cout << "Largest element in the array = " << max << endl;
     delete[] arr;
-
 }
+
