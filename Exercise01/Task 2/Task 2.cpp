@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 // A program for addition, subtraction, multiplication and transposing a matrix
-struct matrica {
+struct Matrix {
     int row;
     int column;
     float** matrix;
@@ -11,14 +11,13 @@ struct matrica {
         this->row = row;
         this->column = column;
         this->matrix = new float* [this->row];
-        for (int i = 0; i < this->row; i++) {
+        for (int i = 0; i < this->row; i++) 
             this->matrix[i] = new float[this->column];
-        }
     }
     void generateMatrix(int a, int b) {
         for (int i = 0; i < this->row; i++)
             for (int j = 0; j < this->column; j++)
-                this->matrix[i][j] = float(a + (std::rand() % (b - a + 1)));
+                this->matrix[i][j] = float(a + (rand() % (b - a + 1)));
     }
     void printMatrix()
     {
@@ -45,9 +44,9 @@ struct matrica {
     }
 };
 
-matrica addMatrices(matrica m1, matrica m2) {
+Matrix addMatrices(Matrix m1, Matrix m2) {
     if (m1.row == m2.row && m1.column == m2.column) {
-        matrica m3;
+        Matrix m3;
         m3.createMatrix(m1.row, m1.column);
         cout << "\nThe sum of matrices : \n";
         for (int i = 0; i < m3.row; i++)
@@ -62,9 +61,9 @@ matrica addMatrices(matrica m1, matrica m2) {
     }
 
 }
-matrica subtractMatrices(matrica m1, matrica m2) {
+Matrix subtractMatrices(Matrix m1, Matrix m2) {
     if (m1.row == m2.row && m1.column == m2.column) {
-        matrica m3;
+        Matrix m3;
         m3.createMatrix(m1.row, m1.column);
         cout << "\nThe difference between matrices : \n";
         for (int i = 0; i < m3.row; i++)
@@ -79,9 +78,9 @@ matrica subtractMatrices(matrica m1, matrica m2) {
     }
 
 }
-matrica multiplyMatrices(matrica m1, matrica m2) {
+Matrix multiplyMatrices(Matrix m1, Matrix m2) {
     if (m1.column == m2.row) {
-        matrica m3;
+        Matrix m3;
         m3.createMatrix(m1.row, m1.column);
 
         for (int i = 0; i < m1.row; ++i)
@@ -114,8 +113,8 @@ matrica multiplyMatrices(matrica m1, matrica m2) {
         exit(1);
     }
 }
-matrica transposeMatrix(matrica m1) {
-    matrica mT;
+Matrix transposeMatrix(Matrix m1) {
+    Matrix mT;
     mT.createMatrix(m1.row, m1.column);
     cout << "\nThe transposed matrix : \n";
     for (int i = 0; i < mT.row; i++)
@@ -129,7 +128,7 @@ matrica transposeMatrix(matrica m1) {
 int main()
 {
     srand(time(NULL));
-    matrica m1, m2, m3, m4, mprod;
+    Matrix m1, m2, m3, m4, mprod;
     int a, b;
     cout << "Enter lower limit : ";
     cin >> a;
