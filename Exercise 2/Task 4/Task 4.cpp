@@ -50,6 +50,7 @@ struct MyVector {
         return logicalSize;
     }
     /* reallocates memory for modified vector*/
+private:
     void vectorRealloc(int n) {
         int* newArr = new int[n];
         physicalSize = n;
@@ -70,22 +71,20 @@ int main() {
     cout << "Enter integer, Ctrl+d (linux) or Ctrl+z (win) to end input : " << endl;
     while (cin >> m)
         main_arr.vectorPushBack(m);
-    
-    main_arr.printVector(main_arr);
-    
-    cout << endl << "Next empty index :  " << main_arr.logicalSize << endl;
-    cout << "First element of the vector : " << main_arr.vectorFront() << endl;
-    cout << "Last element of the vector : " << main_arr.vectorBack() << endl;
 
-    cout << "Removing last element of the vector" << endl;
+    main_arr.printVector(main_arr);
+
+    cout << endl << "Next empty index :  " << main_arr.logicalSize << endl;
+    cout << endl << "First element of the vector : " << main_arr.vectorFront() << endl;
+    cout << endl << "Last element of the vector : " << main_arr.vectorBack() << endl;
+
+    cout << endl << "Removing last element of the vector" << endl;
     main_arr.vectorPopBack();
     main_arr.printVector(main_arr);
-    cout << "\nLogical size of the vector : " << main_arr.vectorSize() << endl;
-    cout << "Physical size of the vector :  " << main_arr.physicalSize << endl;
+    cout << endl << "\nLogical size of the vector : " << main_arr.vectorSize() << endl;
+    cout << endl << "Physical size of the vector :  " << main_arr.physicalSize << endl;
 
     cout << endl << endl;
 
     main_arr.vectorDelete();
-
-
 }
