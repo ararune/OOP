@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+// A program to return a reference to the input index and increment the return as lvalue
 int& retref(int* arr, int i)
 {
     return arr[i];
