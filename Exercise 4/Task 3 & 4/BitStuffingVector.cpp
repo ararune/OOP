@@ -1,26 +1,21 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
 
-vector<int>& bitStuffing(vector<int>& str)
+std::vector<int>& bitStuffing(std::vector<int>& str)
 {
     int input = 1;
     unsigned int count = 0;
-    cout << "Enter 1 or 0, any other number to exit : ";
+    std::cout << "Enter 1s or 0s, any other number to exit : ";
     while (input >= 0 && input <= 1)
     {
-        cin >> input;
-        if (input == 0 || input == 1)
-        {
+        std::cin >> input;
+        if (input == 0 || input == 1) 
             str.push_back(input);
-        }
-        if (input == 1)
-            count++;
-        else
-            count = 0;
+
+        (input == 1) ? count++ : count = 0;
+        
         if (count >= 5)
         {
             count = 0;
@@ -29,39 +24,32 @@ vector<int>& bitStuffing(vector<int>& str)
     }
     return str;
 }
-vector<int> bitUnstuffing(vector<int> str)
+std::vector<int>& bitUnstuffing(std::vector<int>& str)
 {
     unsigned int count = 0;
     for (unsigned int i = 0, count = 0; i < str.size(); ++i)
     {
-        if (str[i] == 1)
-        {
-            count++;
-        }
-        else
-        {
-            count = 0;
-        }
+        (str[i] == 1) ? count++ : count = 0;
         if (count >= 5)
         {
             count = 0;
-            str.erase(str.begin() + (i+1));
+            str.erase(str.begin() + (i + 1));
         }
     }
     return str;
 }
 int main()
 {
-    vector<int> str;
-    vector<int> stuffed;
+    std::vector<int> str;
+    std::vector<int> stuffed;
     stuffed = bitStuffing(str);
-    cout << "Stuffed : ";
-    for (auto i : stuffed)
-        cout << i;
-    vector<int> unstuffed;
-    cout << endl << "Unstuffed : ";
+    std::cout << "Stuffed : ";
+    for (auto const& i : stuffed)
+        std::cout << i;
+    std::vector<int> unstuffed;
+    std::cout << std::endl << "Unstuffed : ";
     unstuffed = bitUnstuffing(stuffed);
-    for (auto i : unstuffed)
-        cout << i;
+    for (auto const& i : unstuffed)
+        std::cout << i;
 }
 
