@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+// Bit stuffing & unstuffing using vector push and erase method
 
 std::vector<int>& bitStuffing(std::vector<int>& str)
 {
