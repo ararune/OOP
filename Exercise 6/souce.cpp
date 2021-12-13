@@ -16,7 +16,6 @@ int main()
     m.removeSpaces();
     m.toUpper();
     
-
     do {
         system("cls");
         v.printLine();
@@ -37,7 +36,6 @@ int main()
         char temp, input;
         cout << "Enter a character : "; cin >> temp;
         input = toupper(temp);
-
 
         if (m.getGuesses().find(input) == string::npos)
             m.setGuesses(input);
