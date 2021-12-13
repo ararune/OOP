@@ -51,10 +51,8 @@ int strike(Target* target, int n)
 	int k = 0;
 
 	for (int i = 0; i < n; i++)
-	{
 		if (target[i].isHit())
 			k++;
-	}
 
 	return k;
 }
