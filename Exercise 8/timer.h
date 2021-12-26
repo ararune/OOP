@@ -32,7 +32,7 @@ public:
 	// getters
 	const double getSeconds() { return s; }
 	const int getMinutes() { return m; }
-	const int getHours() { return m; }
+	const int getHours() { return h; }
 
 	// setters
 	void setSeconds(const double s = 0) { this->s = s; }
