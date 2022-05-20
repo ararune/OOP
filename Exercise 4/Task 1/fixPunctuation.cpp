@@ -22,7 +22,7 @@ void fixPunctuation(cont& sentence) {
 }
 
 int main() {
-    cont sentence = "I would ,if at all possible , like to print this sentence correctly .";
+    const sentence = "I would ,if at all possible , like to print this sentence correctly .";
     fixPunctuation(sentence);
     cout << sentence << endl;
 
